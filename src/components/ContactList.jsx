@@ -11,7 +11,7 @@ const ContactList = () => {
     const getContacts = async () => {
       try {
         const { data } = await axios.get(CONTACTS_API);
-        setContacts(...contacts, data);
+        setContacts(data);
       } catch (e) {
         console.log(e);
       }
