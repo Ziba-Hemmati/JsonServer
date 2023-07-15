@@ -17,9 +17,12 @@
     @include button;
     @include displayFlex(space-between);
     margin: 10px 0 20px;
-    &:hover{
-        color: $secondaryBackgroundColor;
-        background-color: $primaryBackgroundColor;
+    &:hover {
+      color: $secondaryBackgroundColor;
+      background-color: $primaryBackgroundColor;
     }
   }
+}
+.card-container {
+  height: 100vh;
 }

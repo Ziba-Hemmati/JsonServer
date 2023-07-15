@@ -9,6 +9,9 @@
   }
   p {
     color: $textColor;
+    &:hover {
+      color: #ccc;
+    }
   }
   button {
     @include icons;

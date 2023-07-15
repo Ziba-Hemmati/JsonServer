@@ -8,16 +8,18 @@ const Home = () => {
   };
 
   return (
-    <div className="card">
-      <div className="card__header">
-        <h1>Contact List</h1>
-        <button onClick={handleClick}>
-          <i className="fa-solid fa-plus"></i>
-          <span>Add Contact</span>
-        </button>
-      </div>
-      <div>
-        <ContactList />
+    <div className="card-container">
+      <div className="card">
+        <div className="card__header">
+          <h1>Contact List</h1>
+          <button onClick={handleClick}>
+            <i className="fa-solid fa-plus"></i>
+            <span>Add Contact</span>
+          </button>
+        </div>
+        <div>
+          <ContactList />
+        </div>
       </div>
     </div>
   );

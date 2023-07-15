@@ -1,0 +1,22 @@
+@import "./variables";
+@import "./mixin";
+
+.new-contact-card {
+  color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: $secondaryBackgroundColor;
+  h1 {
+    text-shadow: 1px 1px 4px $borderColor;
+    margin-bottom: 10px;
+  }
+}
+.new-contact__header {
+  border-bottom: 1px solid $textColor;
+}
+.card-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}

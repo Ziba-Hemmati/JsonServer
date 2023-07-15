@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "../styles/contact-form.scss"
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const ContactForm = () => {
@@ -33,8 +33,8 @@ const ContactForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form-item">
           <input
             placeholder="name"
             type="text"
@@ -43,7 +43,7 @@ const ContactForm = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="form-item">
           <input
             placeholder="phone number"
             type="tel"
@@ -52,8 +52,11 @@ const ContactForm = () => {
             onChange={handleChange}
           />
         </div>
-        <div>
-          <button type="submit">Add</button>
+        <div className="form-item">
+          <button type="submit">
+            <i className="fa-solid fa-plus"></i>
+            <span>Add Contact</span>
+          </button>
         </div>
       </form>
     </div>
