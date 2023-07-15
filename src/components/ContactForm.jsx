@@ -30,7 +30,7 @@ const ContactForm = () => {
       alert("There's an error!");
     }
   };
- 
+
   return (
     <div>
       <form onSubmit={handleSubmit}>

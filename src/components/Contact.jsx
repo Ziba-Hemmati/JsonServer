@@ -1,8 +1,6 @@
 import { useState } from "react";
-import "./Contact.css";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import EditContact from "../pages/EditContact";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
@@ -21,17 +19,19 @@ const Contact = ({ id, name, number }) => {
   return (
     <>
       {toggle && (
-        <div className="card">
-          <p>Name: {name} </p>
-          <p>Phone Number: {number}</p>
-          <button onClick={handleClick}>
-            <i className="fa-solid fa-trash-can"></i>
-          </button>
+        <Link to={`/details/${id}`}>
+          <div className="card">
+            <p>Name: {name} </p>
+            <p>Phone Number: {number}</p>
+            <button onClick={handleClick}>
+              <i className="fa-solid fa-trash-can"></i>
+            </button>
 
             <button onClick={handleNavigate}>
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
-        </div>
+          </div>
+        </Link>
       )}
     </>
   );
