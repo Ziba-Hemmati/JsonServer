@@ -1,0 +1,27 @@
+@import "./variables";
+@mixin displayFlex($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+@mixin button {
+  width: 104px;
+  border: 1px solid $buttonBackgroundColor;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: $borderColor;
+  outline: none;
+  transition: 0.4s;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: $textColor;
+  cursor: pointer;
+}
+@mixin icons {
+  border: none;
+  outline: none;
+  background-color: $secondaryBackgroundColor;
+  color: $textColor;
+  margin: 4px;
+  cursor: pointer;
+}

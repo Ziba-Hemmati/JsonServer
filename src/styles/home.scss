@@ -1,0 +1,25 @@
+@import "./mixin";
+@import "./variables";
+
+.card {
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: $secondaryBackgroundColor;
+}
+.card__header {
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+  h1 {
+    text-shadow: 1px 1px 4px $borderColor;
+  }
+  button {
+    @include button;
+    @include displayFlex(space-between);
+    margin: 10px 0 20px;
+    &:hover{
+        color: $secondaryBackgroundColor;
+        background-color: $primaryBackgroundColor;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "./variables";
+@import "./mixin";
+
+.card {
+  border: 1px solid $borderColor;
+  margin: 10px 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  p {
+    color: $textColor;
+  }
+  button {
+    @include icons;
+  }
+  .fa-trash-can:hover {
+    transition: 0.4s;
+
+    color: #ff0000;
+  }
+  .fa-pen-to-square:hover {
+    transition: 0.4s;
+    color: $borderColor;
+  }
+}
