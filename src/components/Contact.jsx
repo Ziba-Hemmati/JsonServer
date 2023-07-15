@@ -1,17 +1,23 @@
 import { useState } from "react";
 import "./Contact.css";
 import axios from "axios";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import EditContact from "../pages/EditContact";
+
+const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Contact = ({ id, name, number }) => {
+  const navigate = useNavigate();
+  const params = useParams();
   const [toggle, setToggle] = useState(true);
   const handleClick = () => {
     setToggle(false);
     const deleteContact = async (id) => {
-      await axios.delete(`http://localhost:3000/contacts/${id}`);
+      await axios.delete(`${CONTACTS_API}/${id}`);
     };
     deleteContact(id);
   };
-
+  const handleNavigate = () => navigate(`/edit-contact/${id}`);
   return (
     <>
       {toggle && (
@@ -22,9 +28,9 @@ const Contact = ({ id, name, number }) => {
             <i className="fa-solid fa-trash-can"></i>
           </button>
 
-          <button>
-            <i className="fa-solid fa-pen-to-square"></i>
-          </button>
+            <button onClick={handleNavigate}>
+              <i className="fa-solid fa-pen-to-square"></i>
+            </button>
         </div>
       )}
     </>

@@ -14,6 +14,7 @@ const ContactList = () => {
         setContacts(data);
       } catch (e) {
         console.log(e);
+        alert("There's an error!");
       }
     };
     getContacts();
