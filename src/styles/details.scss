@@ -1,0 +1,24 @@
+@import "./mixin";
+@import "./variables";
+
+.details-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  .details-card {
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: $secondaryBackgroundColor;
+    line-height: 40px;
+  }
+  button {
+    @include button;
+    @include displayFlex(space-between);
+    margin-top: 16px;
+    &:hover {
+      color: $secondaryBackgroundColor;
+      background-color: $primaryBackgroundColor;
+    }
+  }
+}
