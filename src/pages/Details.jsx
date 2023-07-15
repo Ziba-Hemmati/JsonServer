@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/details.scss";
+import "../styles/details.module.scss";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 

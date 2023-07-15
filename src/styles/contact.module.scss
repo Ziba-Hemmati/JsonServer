@@ -10,7 +10,7 @@
   p {
     color: $textColor;
     &:hover {
-      color: #ccc;
+      color: $textHoverColor;
     }
   }
   button {

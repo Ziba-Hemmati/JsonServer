@@ -1,21 +1,23 @@
 @import "./mixin";
 @import "./variables";
 
+.card-container {
+  @include displayFlex(center, center);  
+}
 .card {
-  color: #fff;
+  @include card;
   padding: 20px;
-  border-radius: 8px;
-  background-color: $secondaryBackgroundColor;
+ 
 }
 .card__header {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid $textColor;
   margin-bottom: 20px;
   h1 {
     text-shadow: 1px 1px 4px $borderColor;
   }
   button {
     @include button;
-    @include displayFlex(space-between);
+    @include displayFlex(space-between, center);
     margin: 10px 0 20px;
     &:hover {
       color: $secondaryBackgroundColor;
@@ -23,6 +25,4 @@
     }
   }
 }
-.card-container {
-  height: 100vh;
-}
+

@@ -10,7 +10,7 @@
   }
   button {
     @include button;
-    @include displayFlex(space-between);
+    @include displayFlex(space-between, center);
     &:hover {
       color: $secondaryBackgroundColor;
       background-color: $primaryBackgroundColor;

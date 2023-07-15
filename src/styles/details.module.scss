@@ -6,15 +6,13 @@
   display: flex;
   align-items: center;
   .details-card {
-    color: #fff;
+    @include card ;
     padding: 20px;
-    border-radius: 8px;
-    background-color: $secondaryBackgroundColor;
     line-height: 40px;
   }
   button {
     @include button;
-    @include displayFlex(space-between);
+    @include displayFlex(space-between, center);
     margin-top: 16px;
     &:hover {
       color: $secondaryBackgroundColor;

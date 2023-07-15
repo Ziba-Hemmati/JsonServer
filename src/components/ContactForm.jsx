@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../styles/contact-form.scss"
+import "../styles/contact-form.module.scss"
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const ContactForm = () => {

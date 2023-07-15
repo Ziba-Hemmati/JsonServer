@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Contact from "./Contact";
-import "../styles/contact-list.scss"
+import "../styles/contact-list.module.scss"
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
