@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/edit-contact.scss";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
@@ -49,30 +50,35 @@ const EditContact = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            placeholder="name"
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-          />
+    <div className="edit-container">
+      <div className="edit-contact">
+        <div className="edit-border">
+          <h1>Edit Contact</h1>
         </div>
-        <div>
-          <input
-            placeholder="phone number"
-            type="tel"
-            name="number"
-            value={number}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <button type="submit">Edit</button>
-        </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className="edit-item">
+            <input
+              placeholder="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="edit-item">
+            <input
+              placeholder="phone number"
+              type="tel"
+              name="number"
+              value={number}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <button type="submit">Edit Contact</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
