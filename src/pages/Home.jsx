@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import ContactList from "../components/ContactList";
-import "../styles/home.module.scss";
 const Home = () => {
   const navigate = useNavigate();
   const handleClick = () => {

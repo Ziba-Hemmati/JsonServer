@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 import NewContact from "./pages/NewContact";
 import EditContact from "./pages/EditContact";
 import Details from "./pages/Details";
-import "./styles/app.module.scss"
 
 function App() {
   return (
