@@ -6,9 +6,10 @@ import "../styles/contact-form.scss";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const ContactForm = () => {
-  
   const [contact, setContact] = useState({ name: "", number: "" });
   const { name, number } = contact;
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,14 +25,23 @@ const ContactForm = () => {
     }
 
     try {
+      setIsLoading(true);
       await axios.post(CONTACTS_API, contact);
       setContact({ name: "", number: "" });
       navigate("/");
-    } catch (error) {
-      console.log(error);
-      alert("Addition failed!");
+      setIsError(false);
+      setIsLoading(false);
+    } catch (e) {
+      console.log(e);
+      setIsError(true);
     }
   };
+  if (isError) {
+    return <h3>There's an error!</h3>;
+  }
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
 
   return (
     <div>

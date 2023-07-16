@@ -8,24 +8,37 @@ const CONTACTS_API = "http://localhost:3000/contacts";
 const Details = () => {
   const navigate = useNavigate();
   const params = useParams();
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [contact, setContact] = useState({ name: "", number: "" });
   const { name, number } = contact;
 
   useEffect(() => {
     const getContacts = async () => {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(`${CONTACTS_API}/${params.id}`);
         setContact(data);
+        setIsLoading(false);
+        setIsError(false);
       } catch (e) {
         console.log(e);
-        alert("There's an error!");
+        setIsError(true);
       }
     };
     getContacts();
   }, []);
+
+  if (isError) {
+    return <h3>There's an error!</h3>;
+  }
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
+
   const handleBack = () => navigate(-1);
 
-  return name && number ? (
+  return (
     <div className="card-container">
       <div>
         <div className="card__header">
@@ -40,8 +53,6 @@ const Details = () => {
         </button>
       </div>
     </div>
-  ) : (
-    <h2>Loading...</h2>
   );
 };
 

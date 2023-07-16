@@ -19,7 +19,7 @@ const EditContact = () => {
         setContact(data);
       } catch (e) {
         console.log(e);
-        alert("There's an error!");
+        // alert("There's an error!");
       }
     };
     getContacts();
@@ -45,7 +45,7 @@ const EditContact = () => {
       navigate("/");
     } catch (error) {
       console.log(error);
-      alert("Edition failed!");
+      // alert("Edition failed!");
     }
   };
 

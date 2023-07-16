@@ -6,22 +6,33 @@ import "../styles/contact.scss";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Contact = ({ id, name, number }) => {
-  
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
     setToggle(false);
     const deleteContact = async (id) => {
       try {
+        setIsLoading(true);
         await axios.delete(`${CONTACTS_API}/${id}`);
+        setIsLoading(false);
+        setIsError(false);
       } catch (e) {
         console.log(e);
-        alert("Deletion failed!");
+        setIsError(true);
       }
     };
     deleteContact(id);
   };
+
+  if (isError) {
+    return <h3>Deletion Failed!</h3>;
+  }
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
 
   const handleNavigate = () => navigate(`/edit-contact/${id}`);
 
