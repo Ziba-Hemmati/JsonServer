@@ -37,10 +37,21 @@ const ContactForm = () => {
     }
   };
   if (isError) {
-    return <h3>There's an error!</h3>;
+    return (
+      <>
+        <h3 className="msg">Error : Addition failed!</h3>
+        <button
+          title="Back To Home"
+          className="card__btn"
+          onClick={() => navigate("/")}
+        >
+          Back to home
+        </button>
+      </>
+    );
   }
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <h3 className="msg">Loading...</h3>;
   }
 
   return (

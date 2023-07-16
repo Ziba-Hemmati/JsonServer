@@ -28,10 +28,10 @@ const Contact = ({ id, name, number }) => {
   };
 
   if (isError) {
-    return <h3>Deletion Failed!</h3>;
+    return <h3 className="msg">Error : Deletion Failed!</h3>;
   }
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <h3 className="msg">Loading...</h3>;
   }
 
   const handleNavigate = () => navigate(`/edit-contact/${id}`);

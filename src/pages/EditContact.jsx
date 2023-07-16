@@ -9,21 +9,33 @@ const EditContact = () => {
   const [contact, setContact] = useState({ name: "", number: "" });
   const { name, number } = contact;
   const navigate = useNavigate();
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   // **********************************************************
 
   useEffect(() => {
     const getContacts = async () => {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(`${CONTACTS_API}/${params.id}`);
         setContact(data);
+        setIsLoading(false);
+        setIsError(false);
       } catch (e) {
         console.log(e);
-        // alert("There's an error!");
+        setIsError(true);
       }
     };
     getContacts();
   }, []);
+
+  if (isError) {
+    return <h3 className="msg">There's an error!</h3>;
+  }
+  if (isLoading) {
+    return <h3 className="msg">Loading...</h3>;
+  }
 
   // **********************************************************
 
@@ -40,18 +52,27 @@ const EditContact = () => {
     }
 
     try {
+      setIsLoading(true);
       await axios.put(`${CONTACTS_API}/${params.id}`, contact);
       setContact({ name: "", number: "" });
       navigate("/");
+      setIsLoading(false);
+      setIsError(false);
     } catch (error) {
       console.log(error);
-      // alert("Edition failed!");
+      setIsError(true);
     }
   };
 
+  if (isError) {
+    return <h3 className="msg">Error : Edition failed!</h3>;
+  }
+  if (isLoading) {
+    return <h3 className="msg">Loading...</h3>;
+  }
   const handleCancel = () => navigate("/");
 
-  return name && number ? (
+  return (
     <div className="card-container">
       <div>
         <div className="card__header">
@@ -90,8 +111,6 @@ const EditContact = () => {
         </form>
       </div>
     </div>
-  ) : (
-    <h2>Loading...</h2>
   );
 };
 

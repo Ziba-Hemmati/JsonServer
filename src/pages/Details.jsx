@@ -30,10 +30,23 @@ const Details = () => {
   }, []);
 
   if (isError) {
-    return <h3>There's an error!</h3>;
+    return (
+      <div className="card-container">
+        <div>
+          <h3 className="card__header">There's an error!</h3>
+          <button
+            title="Back To Home"
+            className="card__btn"
+            onClick={() => navigate("/")}
+          >
+            Back to home
+          </button>
+        </div>
+      </div>
+    );
   }
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <h3 className="card__header details-msg">Loading...</h3>;
   }
 
   const handleBack = () => navigate(-1);

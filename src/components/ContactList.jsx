@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Contact from "./Contact";
+import { useNavigate } from "react-router-dom";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
@@ -8,6 +9,7 @@ const ContactList = () => {
   const [contacts, setContacts] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getContacts = async () => {
@@ -26,10 +28,10 @@ const ContactList = () => {
   }, []);
 
   if (isError) {
-    return <h3>There's an error!</h3>;
+    return <h3 className="msg">There's an error!</h3>;
   }
   if (isLoading) {
-    return <h3>Loading...</h3>;
+    return <h3 className="msg">Loading...</h3>;
   }
 
   return (

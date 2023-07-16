@@ -1,7 +1,6 @@
 import ContactForm from "../components/ContactForm";
 
 const NewContact = () => {
-  
   return (
     <div className="card-container">
       <div>
