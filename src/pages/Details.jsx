@@ -6,7 +6,6 @@ import "../styles/details.scss";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Details = () => {
-  
   const navigate = useNavigate();
   const params = useParams();
   const [contact, setContact] = useState({ name: "", number: "" });
@@ -26,7 +25,7 @@ const Details = () => {
   }, []);
   const handleBack = () => navigate(-1);
 
-  return (
+  return name && number ? (
     <div className="card-container">
       <div>
         <div className="card__header">
@@ -41,6 +40,8 @@ const Details = () => {
         </button>
       </div>
     </div>
+  ) : (
+    <h2>Loading...</h2>
   );
 };
 

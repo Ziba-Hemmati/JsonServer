@@ -1,23 +1,28 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import "../styles/contact.scss"
+import "../styles/contact.scss";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Contact = ({ id, name, number }) => {
-
-  const navigate = useNavigate();
-  const params = useParams();
-  const [toggle, setToggle] = useState(true);
   
+  const navigate = useNavigate();
+  const [toggle, setToggle] = useState(true);
+
   const handleClick = () => {
     setToggle(false);
     const deleteContact = async (id) => {
-      await axios.delete(`${CONTACTS_API}/${id}`);
+      try {
+        await axios.delete(`${CONTACTS_API}/${id}`);
+      } catch (e) {
+        console.log(e);
+        alert("Deletion failed!");
+      }
     };
     deleteContact(id);
   };
+
   const handleNavigate = () => navigate(`/edit-contact/${id}`);
 
   return (

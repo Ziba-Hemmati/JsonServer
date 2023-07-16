@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../styles/contact-form.scss"
+import "../styles/contact-form.scss";
 
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const ContactForm = () => {
-
+  
   const [contact, setContact] = useState({ name: "", number: "" });
   const { name, number } = contact;
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const ContactForm = () => {
       navigate("/");
     } catch (error) {
       console.log(error);
-      alert("There's an error!");
+      alert("Addition failed!");
     }
   };
 
@@ -43,6 +43,7 @@ const ContactForm = () => {
             name="name"
             value={name}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="form-item">
@@ -52,6 +53,7 @@ const ContactForm = () => {
             name="number"
             value={number}
             onChange={handleChange}
+            required
           />
         </div>
         <div>

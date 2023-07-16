@@ -8,8 +8,9 @@
   margin: 50px auto;
   border-radius: 8px;
   background-color: $insideColor;
+  box-shadow: 1px 1px 4px $borderColor;
 }
-@mixin btn  {
+@mixin btn {
   border: 1px solid $borderColor;
   border-radius: 4px;
   display: flex;
