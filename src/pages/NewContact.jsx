@@ -1,9 +1,11 @@
 import ContactForm from "../components/ContactForm";
+
 const NewContact = () => {
+  
   return (
     <div className="card-container">
-      <div className="new-contact-card">
-        <div className="new-contact__header">
+      <div>
+        <div className="card__header">
           <h1>New Contact Page</h1>
         </div>
         <ContactForm />

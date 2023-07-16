@@ -1,0 +1,24 @@
+@import "./mixin";
+
+.card-container {
+  @include card;
+  font-family: $fontFamily;
+  color: $textColor;
+  background-color: $cardColor;
+}
+.card__btn {
+  @include btn;
+  .fa-plus {
+    padding-right: 4px;
+  }
+  &:hover {
+    color: $textColor;
+    background-color: $hoverButtonColor;
+    transition: 0.4s;
+  }
+}
+.card__header {
+  border-bottom: 1px solid $textColor;
+  padding-bottom: 20px;
+  text-shadow: 1px 1px 4px $textShadowColor;
+}

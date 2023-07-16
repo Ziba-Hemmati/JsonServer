@@ -1,0 +1,10 @@
+@import "./variables";
+
+.form-item input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  margin-top: 20px;
+  background-color: $insideColor;
+}

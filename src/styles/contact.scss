@@ -1,0 +1,40 @@
+@import "./variables";
+
+.contact-item {
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 10px 0;
+  .contact-item__btn {
+    color: $textColor;
+    background-color: $cardColor;
+    border: none;
+    padding-right: 10px;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  p {
+    color: $textColor;
+    &:hover {
+      color: $hoverTextColor;
+      transition: 0.4s;
+    }
+  }
+  .fa-pen-to-square {
+    &:hover {
+      color: $editHoverColor;
+      transition: 0.4s;
+    }
+  }
+  .fa-trash-can {
+    &:hover {
+      color: $trashHoverColor;
+      transition: 0.4s;
+    }
+  }
+}
+.edit__buttons {
+  display: flex;
+  justify-content: space-between;
+}

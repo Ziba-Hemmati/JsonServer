@@ -5,6 +5,7 @@ import Contact from "./Contact";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const ContactList = () => {
+
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ const ContactList = () => {
   }, []);
 
   return (
-    <div className="contact-list">
+    <div>
       {contacts.length ? (
         contacts.map(({ id, name, number }) => (
           <Contact key={id} name={name} number={number} id={id} />

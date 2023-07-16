@@ -5,6 +5,7 @@ import axios from "axios";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const EditContact = () => {
+  
   const params = useParams();
   const [contact, setContact] = useState({ name: "", number: "" });
   const { name, number } = contact;
@@ -24,6 +25,8 @@ const EditContact = () => {
     };
     getContacts();
   }, []);
+
+  const handleCancel = () => navigate(-1);
 
   // **********************************************************
 
@@ -48,14 +51,15 @@ const EditContact = () => {
       alert("There's an error!");
     }
   };
+
   return (
-    <div className="edit-container">
-      <div className="edit-contact">
-        <div className="edit-border">
+    <div className="card-container">
+      <div>
+        <div className="card__header">
           <h1>Edit Contact</h1>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="edit-item">
+          <div className="form-item">
             <input
               placeholder="name"
               type="text"
@@ -64,7 +68,7 @@ const EditContact = () => {
               onChange={handleChange}
             />
           </div>
-          <div className="edit-item">
+          <div className="form-item">
             <input
               placeholder="phone number"
               type="tel"
@@ -73,8 +77,15 @@ const EditContact = () => {
               onChange={handleChange}
             />
           </div>
-          <div>
-            <button type="submit">Edit Contact</button>
+
+          <div className="edit__buttons">
+            <button title="Edit Contact" type="submit" className="card__btn">
+              Edit Contact
+            </button>
+
+            <button title="Cancel" className="card__btn" onClick={handleCancel}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>
