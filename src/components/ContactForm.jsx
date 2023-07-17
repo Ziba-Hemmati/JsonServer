@@ -36,15 +36,14 @@ const ContactForm = () => {
       setIsError(true);
     }
   };
+
+  const handleBack = () => navigate("/");
+
   if (isError) {
     return (
       <>
         <h3 className="msg">Error : Addition failed!</h3>
-        <button
-          title="Back To Home"
-          className="card__btn"
-          onClick={() => navigate("/")}
-        >
+        <button title="Back To Home" className="card__btn" onClick={handleBack}>
           Back to home
         </button>
       </>

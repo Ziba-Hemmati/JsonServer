@@ -6,10 +6,10 @@ import "../styles/contact.scss";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Contact = ({ id, name, number }) => {
-  const navigate = useNavigate();
   const [toggle, setToggle] = useState(true);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setToggle(false);
@@ -28,7 +28,7 @@ const Contact = ({ id, name, number }) => {
   };
 
   if (isError) {
-    return <h3 className="msg">Error : Deletion Failed!</h3>;
+    return <h3 className="msg">Error : Deletion failed!</h3>;
   }
   if (isLoading) {
     return <h3 className="msg">Loading...</h3>;

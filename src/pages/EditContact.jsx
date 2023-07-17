@@ -30,11 +30,25 @@ const EditContact = () => {
     getContacts();
   }, []);
 
+  const handleBack = () => navigate("/");
   if (isError) {
-    return <h3 className="msg">There's an error!</h3>;
+    return (
+      <div className="card-container">
+        <div>
+          <h3 className="card__header">There's an error!</h3>
+          <button
+            title="Back To Home"
+            className="card__btn"
+            onClick={handleBack}
+          >
+            Back to home
+          </button>
+        </div>
+      </div>
+    );
   }
   if (isLoading) {
-    return <h3 className="msg">Loading...</h3>;
+    return <h3 className="card__header">Loading...</h3>;
   }
 
   // **********************************************************
@@ -65,7 +79,7 @@ const EditContact = () => {
   };
 
   if (isError) {
-    return <h3 className="msg">Error : Edition failed!</h3>;
+    return <h3 className="msg">There's an error!</h3>;
   }
   if (isLoading) {
     return <h3 className="msg">Loading...</h3>;

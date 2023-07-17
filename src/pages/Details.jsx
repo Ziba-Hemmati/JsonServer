@@ -6,8 +6,8 @@ import "../styles/details.scss";
 const CONTACTS_API = "http://localhost:3000/contacts";
 
 const Details = () => {
-  const navigate = useNavigate();
   const params = useParams();
+  const navigate = useNavigate();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [contact, setContact] = useState({ name: "", number: "" });
